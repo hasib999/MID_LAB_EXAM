@@ -40,7 +40,8 @@ function(req,res){
                 }
             }
             else{
-                res.redirect('/login');
+                console.log(req.body);
+                req.send('invalid username / Password')
             }
         })
     }

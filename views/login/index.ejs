@@ -8,6 +8,7 @@
     <fieldset>
         <legend>Login</legend>
         <form method="POST">
+            
             <input style="height: 3%;" name="username" type="text" placeholder="Enter Username"><br>
         <% if(error.username) {%>
             <p><%=error.username.msg %> </p>
