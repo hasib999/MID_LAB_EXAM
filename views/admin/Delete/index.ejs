@@ -2,9 +2,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Delete Employee</title>
 </head>
 <body>
-    
+    <fieldset>
+        <legend>Delete Employee</legend>
+        <form method="POST">
+            <input type="text" name="name" value="<%= list[0].name %>" readonly>
+            <input type="text" name="id" value="<%= list[0].id %>" readonly>
+            <input type="text" name="phone" value="<%= list[0].phone %>" readonly>
+            <input type="submit" name="YES" value="YES">
+            <input type="submit" name="NO" value="NO">
+        </form>
+        <a href="/logout">Logout</a>
+    </fieldset>
+
 </body>
 </html>

@@ -76,5 +76,20 @@ module.exports =
 			}
 		});
 	
+	},
+	remove: function(user, callback)
+  	{
+		var sql = "DELETE FROM `login` WHERE `username`='"+user+"';";
+		db.execute(sql, function(result)
+    	{
+			if(result)
+			{
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		});
 	}
 }
