@@ -14,14 +14,29 @@
             <input style="height: 3%;" name="username" type="text" value="<%= list[0].username%>" readonly>
             <p>Password</p>
             <input style="height: 3%;" name="password" id="password" type="password" value="<%= list[0].password%>">
+            <% if(error.password) {%>
+                <p style="color: red;"><%=error.password.msg %> </p>
+            <% } %>
             <p>Name</p>
             <input style="height: 3%;" name="name" type="text" value="<%= list[0].name%>">
+            <% if(error.name) {%>
+                <p style="color: red;"><%=error.name.msg %> </p>
+            <% } %>
             <p>Gender</p>
             <input style="height: 3%;" name="gender" type="text" value="<%= list[0].gender%>">
+            <% if(error.gender) {%>
+                <p style="color: red;"><%=error.gender.msg %> </p>
+            <% } %>
             <p>Phone</p>
             <input style="height: 3%;" name="phone" type="text" value="<%= list[0].phone%>">
+            <% if(error.phone) {%>
+                <p style="color: red;"><%=error.phone.msg %> </p>
+            <% } %>
             <p>Designation</p>
-            <input style="height: 3%;" name="designation" type="text" value="<%= list[0].designation%>"><br><br>
+            <input style="height: 3%;" name="designation" type="text" value="<%= list[0].designation%>">
+            <% if(error.designation) {%>
+                <p style="color: red;"><%=error.designation.msg %> </p>
+            <% } %> <br>
             <input style="height: 3%;" type="Submit" name="update"><br>
         </form>
         <a href="/logout">Logout</a>

@@ -6,7 +6,13 @@ var router = express.Router();
 var login 	= require.main.require('./models/login');
 
 
-router.get('/',function(req,res)
+router.get('/',[
+    check('phone','Phone number required').isEmpty(),
+    check('password','Password must be at least 8 character and contains (A-Z, a-z, 0-9, and special sign like @,#,$,& etc)').isEmpty(),
+    check('name','Name required').isEmpty(),
+    check('gender','Gender required').isEmpty(),
+    check('designation','Designation required').isEmpty()
+],function(req,res)
 {
     if(req.session.status==2)
     {
@@ -16,7 +22,8 @@ router.get('/',function(req,res)
         }
         login.get(user,function(result)
         {
-            res.render('employee/UpdateProfile/index',{list:result,error:errors});
+            var errors =validationResult(req);
+            res.render('employee/UpdateProfile/index',{list:result,error:errors.mapped()});
         })
 
     }
@@ -25,12 +32,7 @@ router.get('/',function(req,res)
         res.redirect('/login')
     }
 })
-router.post('/',[
-    check('phone').isLength({min:11,max:11}).withMessage("Phone no must be 11 character"),
-    check('password').isLength({min:8}).withMessage("Give 8 Character long password")
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/)
-    .withMessage("Password must be at least 8 character and contains (A-Z, a-z, 0-9, and special sign like @,#,$,& etc)")
-],function(req,res)
+router.post('/',function(req,res)
 {
     if(req.body.hasOwnProperty("update"))
     {
@@ -45,10 +47,12 @@ router.post('/',[
             username: req.body.username
         }
         if(req.session.status==2)
-        login.update(user,function(result)
-        {
-            res.redirect('/employee/MyProfile');
-        })
+        {    
+            login.update(user,function(result)
+            {
+                res.redirect('/employee/MyProfile');
+            })           
+        }
     }
     // if(req.body.hasOwnProperty("upload"))
     // {
