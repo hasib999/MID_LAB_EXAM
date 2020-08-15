@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+</head>
+<body>
+    <fieldset>
+        <legend>My Profile</legend>
+        <p>Username</p>
+        <input type="text" name="username" value="<%= list[0].username %>" readonly>
+        <p>Name</p>
+        <input type="text" name="name" value="<%= list[0].name %>" readonly>
+        <p>Gender</p>
+        <input type="text" name="gender" value="<%= list[0].gender %>" readonly>
+        <p>Phone</p>
+        <input type="text" name="phone" value="<%= list[0].phone %>" readonly>
+        <p>Designation</p>
+        <input type="text" name="designation" value="<%= list[0].designation %>" readonly><br><br>
+        <a href="/logout"></a>
+    </fieldset>
+</body>
+</html>

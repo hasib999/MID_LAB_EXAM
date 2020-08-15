@@ -8,6 +8,10 @@ var admin= require('./controllers/admin');
 var addEmp =require('./controllers/addemp');
 var allemplist =require('./controllers/allemplist');
 var employee = require('./controllers/employee');
+var profile = require('./controllers/profile');
+var Updateprofile = require('./controllers/updateProfile');
+
+// var updateProfile = require('./controllers/updateprofile');
 
 
 var app =express();
@@ -33,6 +37,8 @@ app.use('/admin',admin);
 app.use('/admin/AddEmployee',addEmp);
 app.use('/admin/AllEmployeeList',allemplist);
 app.use('/employee',employee);
+app.use('/employee/MyProfile',profile);
+app.use('/employee/UpdateProfile',Updateprofile);
 
 app.get('/', function(req, res)
 {
