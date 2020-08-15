@@ -40,7 +40,7 @@ function(req,res){
                 }
             }
             else{
-                res.send('Something Went Wrong....');
+                res.redirect('/login');
             }
         })
     }
