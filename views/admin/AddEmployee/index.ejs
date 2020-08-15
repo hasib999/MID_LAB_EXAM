@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <script src="formvalidation.js"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Add Employee</legend>
+        <form method="POST" name="myForm">
+            <input style="height: 3%;" name="username" id="username" type="text" placeholder="Enter Employee Username">
+            <% if(error.username) {%>
+                <p style="color: red;"><%=error.username.msg %> </p>
+            <% } %>
+            <input style="height: 3%;" name="password" id="password" type="password" placeholder="Enter Employee password"><br><br>
+            <input style="height: 3%;" name="name" type="text" placeholder="Enter Employee Name"><br><br>
+            <input style="height: 3%;" name="gender" type="text" placeholder="Enter Employee Gender"><br><br>
+            <input style="height: 3%;" name="phone" type="text" placeholder="Enter Employee Phone "><br><br>
+            <input style="height: 3%;" name="designation" type="text" placeholder="Enter Employee Designation"><br><br>
+            <input style="height: 3%;" type="Submit">
+        </form>
+        <p>See <a href="">AllEmployeeList</a></p>
+    </fieldset>
+</body>
+</html>

@@ -5,12 +5,14 @@ var bodyParser = require('body-parser');
 var login =require('./controllers/login');
 var logout =require('./controllers/logout');
 var admin= require('./controllers/admin');
+var addEmp =require('./controllers/addemp');
 
 
 var app =express();
 
 //config
 app.set('view engine', 'ejs');
+app.use('/assets', express.static('assets'));
 //middleware
 app.use(bodyParser.json());
 
@@ -26,6 +28,7 @@ app.use(function(req, res, next)
 app.use('/login',login);
 app.use('/logout',logout);
 app.use('/admin',admin);
+app.use('/admin/AddEmployee',addEmp);
 
 
 app.get('/', function(req, res)
