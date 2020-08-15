@@ -7,7 +7,9 @@
 <body>
     <fieldset>
         <legend>Update Employee</legend>
+        <h1>Profile Picture Upload here!</h1>
         <form method="POST" name="myForm">
+            <input type="file" name="file"><input type="submit" name="upload" value="Upload">
             <p>Username</p>
             <input style="height: 3%;" name="username" type="text" value="<%= list[0].username%>" readonly>
             <p>Password</p>
@@ -20,7 +22,7 @@
             <input style="height: 3%;" name="phone" type="text" value="<%= list[0].phone%>">
             <p>Designation</p>
             <input style="height: 3%;" name="designation" type="text" value="<%= list[0].designation%>"><br><br>
-            <input style="height: 3%;" type="Submit"><br><br><br>
+            <input style="height: 3%;" type="Submit" name="update"><br>
         </form>
         <a href="/logout">Logout</a>
     </fieldset>
