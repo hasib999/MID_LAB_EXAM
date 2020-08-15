@@ -17,7 +17,6 @@
                 <th>Gender</th>
                 <th>phone</th>
                 <th>Designation</th>
-                <th>Status</th>
                 <th>Action</th>
             </thead>
             <tbody>
@@ -30,9 +29,8 @@
                       <td><%= list[i].gender %></td>
                       <td><%= list[i].phone %></td>
                       <td><%= list[i].designation %></td>
-                      <td><%= list[i].status %></td>
-                      <td><a a href="/admin/update/<%= list[i].username %>">UPDATE</a> </td>
-                      <td><a a href="/admin/delete/<%= list[i].username %>">DELETE</a></td>
+                      <td><a a href="/admin/Update/<%= list[i].username %>">UPDATE</a> </td>
+                      <td><a a href="/admin/Delete/<%= list[i].username %>">DELETE</a></td>
                     </tr>
                 <% } %>
             </tbody>

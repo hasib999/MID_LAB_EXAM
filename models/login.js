@@ -45,5 +45,36 @@ module.exports =
 				callback([]);
 			}
 		});
+	},
+	get: function(user,callback)
+	{
+		var sql ="SELECT * FROM `login` WHERE `username`='"+user.username+"';";
+		db.getResults(sql, function(result)
+    	{
+			if(result.length > 0)
+			{
+				callback(result);
+			}
+			else
+			{
+				callback([]);
+			}
+		});
+	},
+	update : function(user,callback)
+	{
+		var sql = "UPDATE `login` SET `password`='"+user.password+"' , `name`='"+user.name+"',`gender`='"+user.gender+"',`phone`='"+user.phone+"',`designation`='"+user.designation+"' WHERE `username`='"+user.username+"';";	
+		db.execute(sql,function(result)
+		{
+			if(result)
+			{
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		});
+	
 	}
 }

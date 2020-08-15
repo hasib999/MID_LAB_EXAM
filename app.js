@@ -32,7 +32,6 @@ app.use('/admin',admin);
 app.use('/admin/AddEmployee',addEmp);
 app.use('/admin/AllEmployeeList',allemplist);
 
-
 app.get('/', function(req, res)
 {
 	res.send("Go to >> <a href='/login'> LOGIN </a>");

@@ -4,6 +4,8 @@ var router = express.Router();
 
 var login 	= require.main.require('./models/login');
 
+var err="";
+
 router.get('/',[
     check('username','username required').isEmpty(),
     check('password','Passwprd is required').isEmpty()
@@ -11,7 +13,7 @@ router.get('/',[
 function(req,res){
     var errors =validationResult(req); 
     console.log('login page requested!');
-    res.render('login/index',{error:errors.mapped()});
+    res.render('login/index',{error:errors.mapped(),err:err});
     
 })
 
@@ -40,8 +42,8 @@ function(req,res){
                 }
             }
             else{
-                console.log(req.body);
-                req.send('invalid username / Password')
+                err="Invalid Username / Password";
+                res.redirect('/login');
             }
         })
     }
