@@ -7,7 +7,7 @@ function getConnection(callback)
 	  host     : 'localhost',
 	  user     : 'root',
 	  password : '',
-	  database : 'cms'
+	  database : 'labexam'
 	});
 
 	connection.connect(function(err)
