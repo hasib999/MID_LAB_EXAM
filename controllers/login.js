@@ -11,9 +11,23 @@ router.get('/',[
     check('password','Passwprd is required').isEmpty()
 ],
 function(req,res){
-    var errors =validationResult(req); 
-    console.log('login page requested!');
-    res.render('login/index',{error:errors.mapped(),err:err});
+    if(req.session.status==null || req.session.status=="")
+    {
+        var errors =validationResult(req); 
+        console.log('login page requested!');
+        res.render('login/index',{error:errors.mapped(),err:err});
+    }
+    else
+    {
+        if(req.session.status==1)
+        {
+            res.redirect('/admin');
+        }
+        if(req.session.status==2)
+        {
+            res.redirect('/employee');    
+        }
+    }
     
 })
 
@@ -29,16 +43,28 @@ function(req,res){
     var errors =validationResult(req);
     if(!errors.isEmpty()){
         console.log(errors.mapped());
-        res.render('login/index',{error:errors.mapped()});
+        res.render('login/index',{error:errors.mapped(),err:err});
     }
     else
     {
-        login.login(user,function(response){
+        login.login(user,function(response)
+        {
             if(response.length > 0){
+                err="";
                 req.session.status=response[0].status;
                 req.session.username=response[0].username;
-                if(req.session.status=='1'){
+                if(req.session.status==1){
                     res.redirect('/admin');
+                }
+                else if(req.session.status==2)
+                {
+                    console.log(req.body);
+                    res.redirect('/employee');
+                }
+                else
+                {
+                    console.log(req.body);
+                    res.send("Something Wrong");
                 }
             }
             else{
