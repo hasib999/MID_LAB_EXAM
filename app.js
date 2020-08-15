@@ -7,6 +7,7 @@ var logout =require('./controllers/logout');
 var admin= require('./controllers/admin');
 var addEmp =require('./controllers/addemp');
 var allemplist =require('./controllers/allemplist');
+var employee = require('./controllers/employee');
 
 
 var app =express();
@@ -31,6 +32,7 @@ app.use('/logout',logout);
 app.use('/admin',admin);
 app.use('/admin/AddEmployee',addEmp);
 app.use('/admin/AllEmployeeList',allemplist);
+app.use('/employee',employee);
 
 app.get('/', function(req, res)
 {
