@@ -30,5 +30,20 @@ module.exports =
 				callback(false);
 			}
 		})                                                   
+	},
+	getEmp : function(callback)
+	{
+		var sql ="SELECT * FROM `login` WHERE `status`='2';";
+		db.getResults(sql, function(result)
+    	{
+			if(result.length > 0)
+			{
+				callback(result);
+			}
+			else
+			{
+				callback([]);
+			}
+		});
 	}
 }
