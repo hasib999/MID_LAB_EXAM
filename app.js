@@ -19,6 +19,7 @@ var app =express();
 
 //config
 app.set('view engine', 'ejs');
+app.use('/assets', express.static('assets'));
 //middleware
 app.use(bodyParser.json());
 app.use(upload());

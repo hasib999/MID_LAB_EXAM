@@ -54,32 +54,32 @@ router.post('/',function(req,res)
             })           
         }
     }
-    // if(req.body.hasOwnProperty("upload"))
-    // {
-    //     if(req.files)
-    //     {
-    //         console.log(req.files);
-    //         var file = req.files.file;
-    //         var filename=file.name;
-    //         console.log(filename);
+    if(req.body.hasOwnProperty("upload"))
+    {
+        if(req.files)
+        {
+            console.log(req.files);
+            var file = req.files.file;
+            var filename=file.name;
+            console.log(filename);
 
-    //         file.mv('./admin/'+filename,function(err)
-    //         {
-    //             if(err)
-    //             {
-    //                 res.send(err);
-    //             }
-    //             else
-    //             {
-    //                 res.send("File Uploaded");
-    //             }
-    //         })
-    //     }
-    //     else
-    //     {
-    //         res.send("Error")
-    //     }
-    // }
+            file.mv('/uploads/'+filename,function(err)
+            {
+                if(err)
+                {
+                    res.send(err);
+                }
+                else
+                {
+                    res.send("File Uploaded");
+                }
+            })
+        }
+        else
+        {
+            res.send("Error")
+        }
+    }
 })
 
 
